@@ -1,0 +1,9 @@
+#Default GitHub
+Host Company
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/Company
+Host github-Personal
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/Personal

@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		E8D5DE7E23355E60001F2DD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DE7D23355E60001F2DD0 /* AppDelegate.swift */; };
-		E8D5DE8023355E60001F2DD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DE7F23355E60001F2DD0 /* ViewController.swift */; };
+		E8D5DE8023355E60001F2DD0 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DE7F23355E60001F2DD0 /* ListController.swift */; };
 		E8D5DE8323355E60001F2DD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DE8123355E60001F2DD0 /* Main.storyboard */; };
 		E8D5DE8523355E61001F2DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DE8423355E61001F2DD0 /* Assets.xcassets */; };
 		E8D5DE8823355E61001F2DD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DE8623355E61001F2DD0 /* LaunchScreen.storyboard */; };
 		E8D5DE9323355E61001F2DD0 /* NousdigitalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DE9223355E61001F2DD0 /* NousdigitalTests.swift */; };
 		E8D5DE9E23355E61001F2DD0 /* NousdigitalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DE9D23355E61001F2DD0 /* NousdigitalUITests.swift */; };
+		E8D5DEB6233573DD001F2DD0 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEB4233573DD001F2DD0 /* ListTableViewCell.swift */; };
+		E8D5DEB7233573DD001F2DD0 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DEB5233573DD001F2DD0 /* ListTableViewCell.xib */; };
+		E8D5DEBB23357F2E001F2DD0 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEBA23357F2E001F2DD0 /* Endpoint.swift */; };
+		E8D5DEBD23357FA0001F2DD0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEBC23357FA0001F2DD0 /* API.swift */; };
+		E8D5DEC2233580CE001F2DD0 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEC1233580CE001F2DD0 /* BundleExtension.swift */; };
+		E8D5DEC423358793001F2DD0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEC323358793001F2DD0 /* Result.swift */; };
+		E8D5DEC6233587E5001F2DD0 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEC5233587E5001F2DD0 /* APIRequest.swift */; };
+		E8D5DEC923359035001F2DD0 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEC823359035001F2DD0 /* List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,7 @@
 /* Begin PBXFileReference section */
 		E8D5DE7A23355E60001F2DD0 /* Nousdigital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nousdigital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D5DE7D23355E60001F2DD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E8D5DE7F23355E60001F2DD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E8D5DE7F23355E60001F2DD0 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		E8D5DE8223355E60001F2DD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8D5DE8423355E61001F2DD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8D5DE8723355E61001F2DD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +55,14 @@
 		E8D5DE9923355E61001F2DD0 /* NousdigitalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NousdigitalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D5DE9D23355E61001F2DD0 /* NousdigitalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NousdigitalUITests.swift; sourceTree = "<group>"; };
 		E8D5DE9F23355E61001F2DD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8D5DEB4233573DD001F2DD0 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		E8D5DEB5233573DD001F2DD0 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		E8D5DEBA23357F2E001F2DD0 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		E8D5DEBC23357FA0001F2DD0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E8D5DEC1233580CE001F2DD0 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
+		E8D5DEC323358793001F2DD0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		E8D5DEC5233587E5001F2DD0 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		E8D5DEC823359035001F2DD0 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +113,11 @@
 		E8D5DE7C23355E60001F2DD0 /* Nousdigital */ = {
 			isa = PBXGroup;
 			children = (
+				E8D5DEC723358FFA001F2DD0 /* Models */,
+				E8D5DEBF233580AB001F2DD0 /* Extensions */,
+				E8D5DEB823357EEB001F2DD0 /* Network */,
+				E8D5DEB3233571B1001F2DD0 /* Controllers */,
 				E8D5DE7D23355E60001F2DD0 /* AppDelegate.swift */,
-				E8D5DE7F23355E60001F2DD0 /* ViewController.swift */,
 				E8D5DE8123355E60001F2DD0 /* Main.storyboard */,
 				E8D5DE8423355E61001F2DD0 /* Assets.xcassets */,
 				E8D5DE8623355E61001F2DD0 /* LaunchScreen.storyboard */,
@@ -123,6 +142,75 @@
 				E8D5DE9F23355E61001F2DD0 /* Info.plist */,
 			);
 			path = NousdigitalUITests;
+			sourceTree = "<group>";
+		};
+		E8D5DEAB23356B50001F2DD0 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEAC23356B61001F2DD0 /* Views */,
+				E8D5DE7F23355E60001F2DD0 /* ListController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E8D5DEAC23356B61001F2DD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEB4233573DD001F2DD0 /* ListTableViewCell.swift */,
+				E8D5DEB5233573DD001F2DD0 /* ListTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E8D5DEB3233571B1001F2DD0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEAB23356B50001F2DD0 /* List */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E8D5DEB823357EEB001F2DD0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEBE23357FB1001F2DD0 /* APIS */,
+				E8D5DEB923357EF3001F2DD0 /* Boiler plate */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E8D5DEB923357EF3001F2DD0 /* Boiler plate */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEBA23357F2E001F2DD0 /* Endpoint.swift */,
+				E8D5DEC323358793001F2DD0 /* Result.swift */,
+				E8D5DEC5233587E5001F2DD0 /* APIRequest.swift */,
+			);
+			path = "Boiler plate";
+			sourceTree = "<group>";
+		};
+		E8D5DEBE23357FB1001F2DD0 /* APIS */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEBC23357FA0001F2DD0 /* API.swift */,
+			);
+			path = APIS;
+			sourceTree = "<group>";
+		};
+		E8D5DEBF233580AB001F2DD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEC1233580CE001F2DD0 /* BundleExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E8D5DEC723358FFA001F2DD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEC823359035001F2DD0 /* List.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +320,7 @@
 				E8D5DE8823355E61001F2DD0 /* LaunchScreen.storyboard in Resources */,
 				E8D5DE8523355E61001F2DD0 /* Assets.xcassets in Resources */,
 				E8D5DE8323355E60001F2DD0 /* Main.storyboard in Resources */,
+				E8D5DEB7233573DD001F2DD0 /* ListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +345,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8D5DE8023355E60001F2DD0 /* ViewController.swift in Sources */,
+				E8D5DE8023355E60001F2DD0 /* ListController.swift in Sources */,
+				E8D5DEC2233580CE001F2DD0 /* BundleExtension.swift in Sources */,
 				E8D5DE7E23355E60001F2DD0 /* AppDelegate.swift in Sources */,
+				E8D5DEBB23357F2E001F2DD0 /* Endpoint.swift in Sources */,
+				E8D5DEC423358793001F2DD0 /* Result.swift in Sources */,
+				E8D5DEB6233573DD001F2DD0 /* ListTableViewCell.swift in Sources */,
+				E8D5DEC6233587E5001F2DD0 /* APIRequest.swift in Sources */,
+				E8D5DEBD23357FA0001F2DD0 /* API.swift in Sources */,
+				E8D5DEC923359035001F2DD0 /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,12 +529,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MBW39N94XN;
 				INFOPLIST_FILE = Nousdigital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Nousdigital.Nousdigital;
+				PRODUCT_BUNDLE_IDENTIFIER = com..Nousdigital.testFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -450,12 +547,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MBW39N94XN;
 				INFOPLIST_FILE = Nousdigital/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Nousdigital.Nousdigital;
+				PRODUCT_BUNDLE_IDENTIFIER = com..Nousdigital.testFlight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

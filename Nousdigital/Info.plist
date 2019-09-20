@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>apiBase</key>
+	<string>https:// cloud.nousdigital.net</string>
+	<key>apiPrefix</key>
+	<string>/s</string>
 </dict>
 </plist>
