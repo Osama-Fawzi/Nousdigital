@@ -9,10 +9,10 @@
 import Foundation
 
 class List:Decodable{
-    var items:[item]?
+    var items:[Item]?
 }
 
-class item: Decodable {
+class Item: Decodable {
     var id:Int?
     var title:String?
     var description:String?

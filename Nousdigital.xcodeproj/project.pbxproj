@@ -22,6 +22,12 @@
 		E8D5DEC423358793001F2DD0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEC323358793001F2DD0 /* Result.swift */; };
 		E8D5DEC6233587E5001F2DD0 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEC5233587E5001F2DD0 /* APIRequest.swift */; };
 		E8D5DEC923359035001F2DD0 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEC823359035001F2DD0 /* List.swift */; };
+		E8D5DED42336050C001F2DD0 /* MailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DED32336050C001F2DD0 /* MailController.swift */; };
+		E8D5DED923362486001F2DD0 /* MailControllerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DED823362486001F2DD0 /* MailControllerLogic.swift */; };
+		E8D5DEDD233625A0001F2DD0 /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEDB233625A0001F2DD0 /* InputCell.swift */; };
+		E8D5DEDE233625A0001F2DD0 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DEDC233625A0001F2DD0 /* InputCell.xib */; };
+		E8D5DEE123362C96001F2DD0 /* BodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEDF23362C96001F2DD0 /* BodyCell.swift */; };
+		E8D5DEE223362C96001F2DD0 /* BodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DEE023362C96001F2DD0 /* BodyCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +69,12 @@
 		E8D5DEC323358793001F2DD0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		E8D5DEC5233587E5001F2DD0 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E8D5DEC823359035001F2DD0 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		E8D5DED32336050C001F2DD0 /* MailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailController.swift; sourceTree = "<group>"; };
+		E8D5DED823362486001F2DD0 /* MailControllerLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailControllerLogic.swift; sourceTree = "<group>"; };
+		E8D5DEDB233625A0001F2DD0 /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
+		E8D5DEDC233625A0001F2DD0 /* InputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputCell.xib; sourceTree = "<group>"; };
+		E8D5DEDF23362C96001F2DD0 /* BodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyCell.swift; sourceTree = "<group>"; };
+		E8D5DEE023362C96001F2DD0 /* BodyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BodyCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +168,7 @@
 		E8D5DEAC23356B61001F2DD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E8D5DEB4233573DD001F2DD0 /* ListTableViewCell.swift */,
-				E8D5DEB5233573DD001F2DD0 /* ListTableViewCell.xib */,
+				E8D5DED1233604BE001F2DD0 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 		E8D5DEB3233571B1001F2DD0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8D5DED7233608E7001F2DD0 /* MailController */,
 				E8D5DEAB23356B50001F2DD0 /* List */,
 			);
 			path = Controllers;
@@ -211,6 +223,36 @@
 				E8D5DEC823359035001F2DD0 /* List.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E8D5DED1233604BE001F2DD0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEB4233573DD001F2DD0 /* ListTableViewCell.swift */,
+				E8D5DEB5233573DD001F2DD0 /* ListTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E8D5DED7233608E7001F2DD0 /* MailController */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEDA2336258C001F2DD0 /* Views */,
+				E8D5DED32336050C001F2DD0 /* MailController.swift */,
+				E8D5DED823362486001F2DD0 /* MailControllerLogic.swift */,
+			);
+			path = MailController;
+			sourceTree = "<group>";
+		};
+		E8D5DEDA2336258C001F2DD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEDB233625A0001F2DD0 /* InputCell.swift */,
+				E8D5DEDC233625A0001F2DD0 /* InputCell.xib */,
+				E8D5DEDF23362C96001F2DD0 /* BodyCell.swift */,
+				E8D5DEE023362C96001F2DD0 /* BodyCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,9 +360,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D5DE8823355E61001F2DD0 /* LaunchScreen.storyboard in Resources */,
+				E8D5DEDE233625A0001F2DD0 /* InputCell.xib in Resources */,
 				E8D5DE8523355E61001F2DD0 /* Assets.xcassets in Resources */,
 				E8D5DE8323355E60001F2DD0 /* Main.storyboard in Resources */,
 				E8D5DEB7233573DD001F2DD0 /* ListTableViewCell.xib in Resources */,
+				E8D5DEE223362C96001F2DD0 /* BodyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,14 +390,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D5DE8023355E60001F2DD0 /* ListController.swift in Sources */,
+				E8D5DED42336050C001F2DD0 /* MailController.swift in Sources */,
 				E8D5DEC2233580CE001F2DD0 /* BundleExtension.swift in Sources */,
 				E8D5DE7E23355E60001F2DD0 /* AppDelegate.swift in Sources */,
 				E8D5DEBB23357F2E001F2DD0 /* Endpoint.swift in Sources */,
 				E8D5DEC423358793001F2DD0 /* Result.swift in Sources */,
 				E8D5DEB6233573DD001F2DD0 /* ListTableViewCell.swift in Sources */,
 				E8D5DEC6233587E5001F2DD0 /* APIRequest.swift in Sources */,
+				E8D5DEE123362C96001F2DD0 /* BodyCell.swift in Sources */,
 				E8D5DEBD23357FA0001F2DD0 /* API.swift in Sources */,
+				E8D5DEDD233625A0001F2DD0 /* InputCell.swift in Sources */,
 				E8D5DEC923359035001F2DD0 /* List.swift in Sources */,
+				E8D5DED923362486001F2DD0 /* MailControllerLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

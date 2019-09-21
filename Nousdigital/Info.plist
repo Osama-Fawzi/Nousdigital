@@ -41,8 +41,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsForMedia</key>
+		<true/>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>apiBase</key>
-	<string>https:// cloud.nousdigital.net</string>
+	<string>https://cloud.nousdigital.net</string>
 	<key>apiPrefix</key>
 	<string>/s</string>
 </dict>

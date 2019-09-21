@@ -9,13 +9,20 @@
 import UIKit
 
 class ListController: UIViewController {
+    
     @IBOutlet weak var tableview: UITableView!
     fileprivate let cellid = String(describing: ListTableViewCell.self)
     fileprivate var itemsList:List?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchItemsList()
         configTableView()
+        CustomNavigationBar()
+    }
+    
+    private CustomNavigationBar(){
+    
     }
     
     private func configTableView(){
@@ -31,7 +38,9 @@ class ListController: UIViewController {
             switch result{
             case .success(let items):
                 self.itemsList = items
-                self.tableview.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
+                DispatchQueue.main.async {
+                    self.tableview.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+                }
             case .failure(let err):
                 print("Error:\(err)")
             }
@@ -57,6 +66,13 @@ extension ListController:UITableViewDelegate,UITableViewDataSource {
         return UITableView.automaticDimension
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = itemsList?.items?[indexPath.row] else {return}
+        tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mailvc = storyboard.instantiateViewController(withIdentifier: "MailController") as! MailController
+        mailvc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        mailvc.item = item
+        self.present(mailvc, animated: false, completion: nil)    }
 }
 

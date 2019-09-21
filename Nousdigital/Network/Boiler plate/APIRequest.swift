@@ -105,6 +105,7 @@ class APIRequest {
             // invalidating the timer before get fired in case of fast response.
             self?.timer?.invalidate()
             self?.timer = nil
+            completion?(result)
         }
         sessionTask?.resume()
     }

@@ -12,13 +12,11 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var descriptionlbl: UILabel!
-   
 
     
-    func loadContent(_ item:item){
+    func loadContent(_ item:Item){
         cellImageView.backgroundColor = .cyan
         titlelbl.text = item.title
         descriptionlbl.text = item.description
-        
     }
 }
