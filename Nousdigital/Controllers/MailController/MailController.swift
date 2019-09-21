@@ -76,6 +76,7 @@ extension MailController {
     fileprivate func performCardViewAnimation(state open:Bool) {
         self.cardViewHeight.constant = open ? maxCardViewHeight : 0
         self.darkView.alpha = open ? 0.7 : 0
+        if !open {self.view.endEditing(true)}
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
             
@@ -100,6 +101,7 @@ extension MailController {
             UIView.animate(withDuration: 0.1) {[weak self] in
                 guard let self = self else { return }
                 y = max(y,205)
+                if y > 205 {self.view.endEditing(true)}
                 let alpha = (1-(y/self.maxCardViewHeight))
                 self.darkView.alpha = alpha
             }

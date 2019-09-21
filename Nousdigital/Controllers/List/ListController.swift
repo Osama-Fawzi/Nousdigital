@@ -19,8 +19,11 @@ class ListController: UIViewController {
         sc.searchBar.returnKeyType = .search
         return sc
     }()
+ 
+    
     fileprivate let cellid = String(describing: ListTableViewCell.self)
     fileprivate var itemsList:List?
+    lazy var searchResults:Observable<[Item]> = .just([])
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -47,9 +50,9 @@ class ListController: UIViewController {
             switch result{
             case .success(let items):
                 self.itemsList = items
-                DispatchQueue.main.async {  self.loadTableView()  }
+                DispatchQueue.main.async {  self.addObservable()  }
             case .failure(let err):
-                print("Error:\(err)")
+                print("Fetching Error:\(err)")
             }
         }
     }
@@ -57,10 +60,10 @@ class ListController: UIViewController {
 
 // MARK:- Handling Tableview using RX
 extension ListController{
-    fileprivate func loadTableView(){
+    fileprivate func addObservable(){
         guard let items = itemsList?.items else {return}
-        let searchResults = searchController.searchBar.rx.text.orEmpty
-            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+         searchResults = searchController.searchBar.rx.text.orEmpty
+            .throttle(.milliseconds(200), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .flatMapLatest { query -> Observable<[Item]> in
                 if query.isEmpty {
@@ -69,13 +72,19 @@ extension ListController{
                 return  self.Searching(SearchWith: query)
             }
             .observeOn(MainScheduler.instance)
-        
+        tableViewBinding()
+    }
+    
+    fileprivate func tableViewBinding() {
         searchResults.bind(to: tableview.rx.items(cellIdentifier: cellid)) {
                 (_, item, cell) in
                 let cell = cell as? ListTableViewCell
                 cell?.loadContent(item)
             }.disposed(by: disposeBag)
-        
+        loadTableView()
+    }
+    
+    fileprivate func loadTableView(){
         tableview.rx.itemSelected.subscribe(onNext: {[weak self] (indexPath) in
             self?.tableview.deselectRow(at: indexPath, animated: true)
         }).disposed(by: disposeBag)
