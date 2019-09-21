@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ListController: UIViewController {
     
@@ -19,24 +21,24 @@ class ListController: UIViewController {
     }()
     fileprivate let cellid = String(describing: ListTableViewCell.self)
     fileprivate var itemsList:List?
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchItemsList()
         configTableView()
         configNavigation()
-
     }
     
     private func configNavigation(){
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
     private func configTableView(){
-        tableview.delegate = self
-        tableview.dataSource = self
         let nib = UINib(nibName: cellid, bundle: nil)
         tableview.register(nib, forCellReuseIdentifier: cellid)
+        tableview.keyboardDismissMode = .onDrag
     }
     
     private func fetchItemsList(){
@@ -45,41 +47,66 @@ class ListController: UIViewController {
             switch result{
             case .success(let items):
                 self.itemsList = items
-                DispatchQueue.main.async {
-                    self.tableview.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
-                }
+                DispatchQueue.main.async {  self.loadTableView()  }
             case .failure(let err):
                 print("Error:\(err)")
             }
         }
     }
-
 }
 
-//Mark:- settingup Tableview
-extension ListController:UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemsList?.items?.count ?? 0
+// MARK:- Handling Tableview using RX
+extension ListController{
+    fileprivate func loadTableView(){
+        guard let items = itemsList?.items else {return}
+        let searchResults = searchController.searchBar.rx.text.orEmpty
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .flatMapLatest { query -> Observable<[Item]> in
+                if query.isEmpty {
+                    return .just(items)
+                }
+                return  self.Searching(SearchWith: query)
+            }
+            .observeOn(MainScheduler.instance)
+        
+        searchResults.bind(to: tableview.rx.items(cellIdentifier: cellid)) {
+                (_, item, cell) in
+                let cell = cell as? ListTableViewCell
+                cell?.loadContent(item)
+            }.disposed(by: disposeBag)
+        
+        tableview.rx.itemSelected.subscribe(onNext: {[weak self] (indexPath) in
+            self?.tableview.deselectRow(at: indexPath, animated: true)
+        }).disposed(by: disposeBag)
+        
+        tableview.rx.modelSelected(Item.self).subscribe(onNext: {[weak self] (item) in
+            self?.ModelMailDialog(with: item)
+        }).disposed(by: disposeBag)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = itemsList?.items?[indexPath.row] else {return UITableViewCell()}
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellid , for: indexPath) as!  ListTableViewCell
-        cell.loadContent(item)
-        return cell
+    fileprivate func Searching(SearchWith term:String) -> Observable<[Item]>{
+        guard let items = itemsList?.items else {return .just([])}
+        let SearchingResults = items.filter({$0.title?.contains(term) ?? false || $0.description?.contains(term) ?? false})
+        return .just(SearchingResults)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let item = itemsList?.items?[indexPath.row] else {return}
-        tableView.deselectRow(at: indexPath, animated: true)
+}
+
+//MARK :- ACTIONS
+extension ListController{
+    fileprivate func ModelMailDialog(with item:Item){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mailvc = storyboard.instantiateViewController(withIdentifier: "MailController") as! MailController
         mailvc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         mailvc.item = item
-        self.present(mailvc, animated: false, completion: nil)    }
+        //Security check for presented UISearchController
+        if let presented = presentedViewController {
+            presented.dismiss(animated: false) {
+                self.searchController.searchBar.endEditing(true)
+                self.present(mailvc, animated: false, completion: nil)
+            }
+        } else {
+            present(mailvc, animated: false, completion: nil)
+        }
+    }
 }
-

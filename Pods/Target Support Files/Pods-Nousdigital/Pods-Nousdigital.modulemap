@@ -1,0 +1,6 @@
+framework module Pods_Nousdigital {
+  umbrella header "Pods-Nousdigital-umbrella.h"
+
+  export *
+  module * { export * }
+}

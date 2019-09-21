@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var descriptionlbl: UILabel!
-
+    
+    override func awakeFromNib() {
+        separatorInset = .zero
+    }
     
     func loadContent(_ item:Item){
-        cellImageView.backgroundColor = .cyan
+        if let imageUrl = URL(string:item.imageUrl ?? ""){
+            cellImageView.sd_setImage(with: imageUrl, completed: nil)
+        }
         titlelbl.text = item.title
         descriptionlbl.text = item.description
     }

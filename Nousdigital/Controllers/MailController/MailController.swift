@@ -71,7 +71,7 @@ class MailController: UIViewController {
     }
 }
 
-// Mark :- Animation handling
+// MARK :- Animation handling
 extension MailController {
     fileprivate func performCardViewAnimation(state open:Bool) {
         self.cardViewHeight.constant = open ? maxCardViewHeight : 0
@@ -125,7 +125,7 @@ extension MailController {
     }
 }
 
-//Mark :- UITableViewDelegate,UITableViewDataSource
+//MARK :- UITableViewDelegate,UITableViewDataSource
 extension MailController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewCells.count
@@ -160,12 +160,5 @@ extension MailController:UITableViewDelegate,UITableViewDataSource{
 
         }
     }
-    
-}
-
-
-// Mark :- Actions
-extension MailController {
-    
     
 }
