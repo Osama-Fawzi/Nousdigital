@@ -11,6 +11,12 @@ import UIKit
 class ListController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
+    fileprivate lazy var searchController: UISearchController = {
+        let sc = UISearchController(searchResultsController: nil)
+        sc.dimsBackgroundDuringPresentation = false
+        sc.searchBar.returnKeyType = .search
+        return sc
+    }()
     fileprivate let cellid = String(describing: ListTableViewCell.self)
     fileprivate var itemsList:List?
     
@@ -18,13 +24,14 @@ class ListController: UIViewController {
         super.viewDidLoad()
         fetchItemsList()
         configTableView()
-        CustomNavigationBar()
+        configNavigation()
+
     }
     
-    private CustomNavigationBar(){
-    
+    private func configNavigation(){
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
-    
     private func configTableView(){
         tableview.delegate = self
         tableview.dataSource = self
