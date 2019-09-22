@@ -31,10 +31,20 @@
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2b-40-dRb">
+                        <rect key="frame" x="0.0" y="43" width="320" height="0.5"/>
+                        <color key="backgroundColor" white="0.78000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="CdK-jm-pel"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="K2b-40-dRb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="G0p-QR-jPk"/>
                     <constraint firstItem="bXL-Md-Set" firstAttribute="leading" secondItem="hWK-mW-E74" secondAttribute="trailing" constant="12" id="KUE-8u-cX9"/>
                     <constraint firstItem="bXL-Md-Set" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="KhL-x8-Elg"/>
+                    <constraint firstAttribute="trailing" secondItem="K2b-40-dRb" secondAttribute="trailing" id="XyO-uv-Tyn"/>
+                    <constraint firstAttribute="bottom" secondItem="K2b-40-dRb" secondAttribute="bottom" id="YA1-ww-4SS"/>
                     <constraint firstAttribute="bottom" secondItem="bXL-Md-Set" secondAttribute="bottom" constant="12" id="aPf-SI-ho2"/>
                     <constraint firstAttribute="bottom" secondItem="hWK-mW-E74" secondAttribute="bottom" constant="12" id="bGR-U7-kj3"/>
                     <constraint firstItem="hWK-mW-E74" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="cdX-6S-3Rt"/>

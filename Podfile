@@ -8,6 +8,7 @@ target 'Nousdigital' do
   pod 'SDWebImage', '4.4.6'
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5'
+  pod 'RxDataSources', '~> 4.0'
   pod 'IQKeyboardManager', '~> 6.4'
 
   target 'NousdigitalTests' do

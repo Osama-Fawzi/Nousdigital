@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import RxDataSources
+import Differentiator
 
 class MailController: UIViewController {
 
@@ -23,7 +27,10 @@ class MailController: UIViewController {
     }
     fileprivate let inputCellId = String(describing: InputCell.self)
     fileprivate let bodyCellId = String(describing: BodyCell.self)
-    lazy var tableViewCells:[TableviewCells] = TableviewCells.allCases
+// uncomment nextline in case of using tableview delegate and datasource
+//    lazy var tableViewCells:[TableviewCells] = TableviewCells.allCases
+    lazy var tableViewCellsObs:Observable<[TableviewCells]> = .just(TableviewCells.allCases)
+    let disposeBag = DisposeBag()
     var item:Item = Item()
 
     override func viewDidLoad() {
@@ -55,15 +62,17 @@ class MailController: UIViewController {
     }
     
     fileprivate func setupTableView(){
-        tableview.delegate = self
-        tableview.dataSource = self
+        addObserbable()
+// uncomment nextline in case of using tableview delegate and datasource
+//        tableview.delegate = self
+//        tableview.dataSource = self
         
         var nib = UINib(nibName: inputCellId, bundle: nil)
         tableview.register(nib, forCellReuseIdentifier: inputCellId)
         nib = UINib(nibName: bodyCellId, bundle: nil)
         tableview.register(nib, forCellReuseIdentifier: bodyCellId)
+        tableview.separatorStyle = .none
 
-        tableview.reloadData()
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -127,40 +136,66 @@ extension MailController {
     }
 }
 
-//MARK :- UITableViewDelegate,UITableViewDataSource
-extension MailController:UITableViewDelegate,UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewCells.count
+//MARK :- Handling tableView with Rx
+extension MailController {
+    func addObserbable(){
+        tableViewCellsObs.bind(to: tableview.rx.items) {[weak self] table, index, element in
+            return self?.getcell(element,index) ?? UITableViewCell()
+            }.disposed(by:disposeBag )
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch tableViewCells[indexPath.row] {
+    private func getcell(_ celltype:TableviewCells,_ index:Int) -> UITableViewCell{
+        switch celltype{
         case .to,.from,.subject,.bcc,.cc:
-            let cell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as! InputCell
-            cell.setupView(tableViewCells[indexPath.row].title)
-            guard tableViewCells[indexPath.row] == .subject else{return cell}
-            cell.loadContent(item.title ?? "")
+            let cell = tableview.dequeueReusableCell(withIdentifier: inputCellId) as! InputCell
+            cell.setupView(celltype.title)
+            guard celltype == .subject else{return cell}
+            cell.loadContent(self.item.title ?? "")
             return cell
         case .body:
-            let cell = tableView.dequeueReusableCell(withIdentifier: bodyCellId, for: indexPath) as! BodyCell
-            cell.textChanged {[weak tableView] (_) in
-                tableView?.beginUpdates()
-                tableView?.endUpdates()
-            }
-            cell.loadContent(item.description ?? "")
+            let cell = tableview.dequeueReusableCell(withIdentifier: bodyCellId) as! BodyCell
+            cell.bodyTv.rx.didBeginEditing.subscribe(onNext: {[weak self] (_) in
+                self?.tableview.beginUpdates()
+                self?.tableview.endUpdates()
+                
+            })
+            cell.loadContent(self.item.description ?? "")
             return cell
         }
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch tableViewCells[indexPath.row] {
-        case .body:
-           return max(500,UITableView.automaticDimension)
-
-        default :
-            return UITableView.automaticDimension
-
-        }
-    }
-    
 }
+
+// uncomment nextlines in case of using tableview delegate and datasource
+//MARK :- UITableViewDelegate,UITableViewDataSource
+//extension MailController:UITableViewDelegate,UITableViewDataSource{
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return tableViewCells.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        switch tableViewCells[indexPath.row] {
+//        case .to,.from,.subject,.bcc,.cc:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as! InputCell
+//            cell.setupView(tableViewCells[indexPath.row].title)
+//            guard tableViewCells[indexPath.row] == .subject else{return cell}
+//            cell.loadContent(item.title ?? "")
+//            return cell
+//        case .body:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: bodyCellId, for: indexPath) as! BodyCell
+//            cell.textChanged {[weak tableView] (_) in
+//                tableView?.beginUpdates()
+//                tableView?.endUpdates()
+//            }
+//            cell.loadContent(item.description ?? "")
+//            return cell
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        switch tableViewCells[indexPath.row] {
+//         return UITableView.automaticDimension
+//        }
+//    }
+//}
+
+
