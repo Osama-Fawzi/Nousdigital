@@ -96,7 +96,7 @@ extension ListController{
     
     fileprivate func Searching(SearchWith term:String) -> Observable<[Item]>{
         guard let items = itemsList?.items else {return .just([])}
-        let SearchingResults = items.filter({$0.title?.contains(term) ?? false || $0.description?.contains(term) ?? false})
+        let SearchingResults = items.filter({$0.title?.lowercased().contains(term.lowercased()) ?? false || $0.description?.lowercased().contains(term.lowercased()) ?? false})
         return .just(SearchingResults)
     }
 }
