@@ -58,7 +58,7 @@ class APIRequest {
         return request
     }
     
-    private func JSONTask<T:Decodable>(with request: URLRequest, decodingModel: T.Type, completion: @escaping (Result<T,APIError>)-> Void) -> URLSessionDataTask {
+    private func JSONTask<T:Codable>(with request: URLRequest, decodingModel: T.Type, completion: @escaping (Result<T,APIError>)-> Void) -> URLSessionDataTask {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse else {
                 completion(.failure(.requestFailed))
@@ -93,7 +93,7 @@ class APIRequest {
         return task
     }
     
-    func fetch<T: Decodable>(has loading:Bool = true, with clientRequest: API, model: T.Type, completion: ((Result<T,APIError>)->())?) {
+    func fetch<T: Codable>(has loading:Bool = true, with clientRequest: API, model: T.Type, completion: ((Result<T,APIError>)->())?) {
         
         if loading {
             // Timer to show loader in case response takes more than 1 second

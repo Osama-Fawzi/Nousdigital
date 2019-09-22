@@ -8,11 +8,11 @@
 
 import Foundation
 
-class List:Decodable{
+class List:Codable{
     var items:[Item]?
 }
 
-class Item: Decodable {
+class Item: Codable{
     var id:Int?
     var title:String?
     var description:String?
