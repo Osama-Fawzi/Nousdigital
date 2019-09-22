@@ -111,7 +111,7 @@ class APIRequest {
     }
     
     @objc func showspinner(){
-//        Helper.showSpinner()
+        Helper.shared.showSpinner()
     }
     
 }

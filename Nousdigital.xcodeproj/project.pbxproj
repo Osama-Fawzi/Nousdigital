@@ -29,6 +29,7 @@
 		E8D5DEDE233625A0001F2DD0 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DEDC233625A0001F2DD0 /* InputCell.xib */; };
 		E8D5DEE123362C96001F2DD0 /* BodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEDF23362C96001F2DD0 /* BodyCell.swift */; };
 		E8D5DEE223362C96001F2DD0 /* BodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D5DEE023362C96001F2DD0 /* BodyCell.xib */; };
+		E8D5DEE623376C4F001F2DD0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5DEE523376C4F001F2DD0 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E8D5DEDC233625A0001F2DD0 /* InputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputCell.xib; sourceTree = "<group>"; };
 		E8D5DEDF23362C96001F2DD0 /* BodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyCell.swift; sourceTree = "<group>"; };
 		E8D5DEE023362C96001F2DD0 /* BodyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BodyCell.xib; sourceTree = "<group>"; };
+		E8D5DEE523376C4F001F2DD0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		F8EAE9577C9E92F09DFA113B /* Pods-Nousdigital.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nousdigital.release.xcconfig"; path = "Target Support Files/Pods-Nousdigital/Pods-Nousdigital.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		E8D5DE7C23355E60001F2DD0 /* Nousdigital */ = {
 			isa = PBXGroup;
 			children = (
+				E8D5DEE423376C35001F2DD0 /* Utilitis */,
 				E8D5DEE32336A5D7001F2DD0 /* Source */,
 				E8D5DEC723358FFA001F2DD0 /* Models */,
 				E8D5DEBF233580AB001F2DD0 /* Extensions */,
@@ -282,6 +285,14 @@
 				E8D5DE7D23355E60001F2DD0 /* AppDelegate.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		E8D5DEE423376C35001F2DD0 /* Utilitis */ = {
+			isa = PBXGroup;
+			children = (
+				E8D5DEE523376C4F001F2DD0 /* Helper.swift */,
+			);
+			path = Utilitis;
 			sourceTree = "<group>";
 		};
 		F4CDCCCB07EDE4873651A810 /* Pods */ = {
@@ -520,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8D5DE8023355E60001F2DD0 /* ListController.swift in Sources */,
+				E8D5DEE623376C4F001F2DD0 /* Helper.swift in Sources */,
 				E8D5DED42336050C001F2DD0 /* MailController.swift in Sources */,
 				E8D5DEC2233580CE001F2DD0 /* BundleExtension.swift in Sources */,
 				E8D5DE7E23355E60001F2DD0 /* AppDelegate.swift in Sources */,

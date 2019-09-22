@@ -47,6 +47,7 @@ class ListController: UIViewController {
     private func fetchItemsList(){
         APIRequest.shared.fetch(with: API.listing, model: List.self) { [weak self] (result) in
             guard let self = self else {return}
+            Helper.shared.hideSpinner()
             switch result{
             case .success(let items):
                 self.itemsList = items
