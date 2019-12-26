@@ -8,8 +8,8 @@
 
 import Foundation
 
-class List:Codable{
-    var items:[Item]?
+class List: Codable {
+    var items: [Item]?
 }
 
 class Item: Codable{
