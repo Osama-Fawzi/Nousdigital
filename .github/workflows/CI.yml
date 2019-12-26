@@ -5,25 +5,45 @@ on:
     branches:
     - develop
     - feature/*
+# jobs:
+#   test:
+#     name: Test
+#     runs-on: macos-latest
+#     strategy:
+#         matrix:
+#           destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X']
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@master
+#       - name: Build and test
+#         run: |
+#           cd Texstyle
+#           xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+#           bash <(curl -s https://codecov.io/bash)
+#         env: 
+#          destination: ${{ matrix.destination }}
 jobs:
   test:
+    # Job name is Test
     name: Test
-    runs-on: macos-latest
+    # This job runs on macOS
+    runs-on: macOS-latest
     strategy:
-        matrix:
-          destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X']
+      matrix:
+        destination: ['platform=iOS Simulator,OS=12.4,name=iPhone 8']
+        xcode: ['/Applications/Xcode_10.3.app/Contents/Developer']
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-      - name: Build and test
-        run: |
-          cd Texstyle
-          xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-          bash <(curl -s https://codecov.io/bash)
-        env: 
-         destination: ${{ matrix.destination }}
-
-
+        uses: actions/checkout@v1
+      - name: Bundle Install
+        run: bundle install
+        env:
+          BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
+      - name: Dependencies
+        run: 
+          bundle exec pod install
+        env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
 # jobs:
 #   test:
 #     # Job name is Test
