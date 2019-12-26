@@ -28,11 +28,6 @@ jobs:
           bundle exec pod install
         env:
           DEVELOPER_DIR: ${{ matrix.xcode }}
-      - name: Build and test
-        run: bundle exec fastlane scan --destination "${destination}" --scheme "YOUR_APP_SCHEME"
-        env:
-          destination: ${{ matrix.destination }}
-          DEVELOPER_DIR: ${{ matrix.xcode }}
       - name: Archive Failed Tests artifacts
         if: failure()
         uses: actions/upload-artifact@v1
