@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@develop
+    - uses: workflows/checkout@develop
     - name: Start xcodebuild test
       run: xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination "platform=iOS Simulator,name=iPhone X"
 # jobs:
