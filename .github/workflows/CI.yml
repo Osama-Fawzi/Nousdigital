@@ -5,30 +5,30 @@ on:
     branches:
     - develop
     - feature/*
-# jobs:
-#   build:
-#     runs-on: macos-latest
-#     steps:
-#     - uses: actions/checkout@develop
-#     - name: Start xcodebuild test
-#       run: xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination "platform=iOS Simulator,name=iPhone X"
 jobs:
-  test:
-    name: Test
+  build:
     runs-on: macos-latest
-    strategy:
-        matrix:
-          destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X']
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Build and test
-        run: |
-          cd Nousdigital
-          xcodebuild clean test -project Nousdigital.xcworkspace -scheme Nousdigital -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-          bash <(curl -s https://codecov.io/bash)
-        env: 
-         destination: ${{ matrix.destination }}
+    - uses: actions/checkout@master
+    - name: Start xcodebuild test
+      run: xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination "platform=iOS Simulator,name=iPhone X"
+# jobs:
+#   test:
+#     name: Test
+#     runs-on: macos-latest
+#     strategy:
+#         matrix:
+#           destination: ['platform=iOS Simulator,OS=12.2,name=iPhone X']
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@master
+#       - name: Build and test
+#         run: |
+#           cd Nousdigital
+#           xcodebuild clean test -project Nousdigital.xcworkspace -scheme Nousdigital -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+#           bash <(curl -s https://codecov.io/bash)
+#         env: 
+#          destination: ${{ matrix.destination }}
 # jobs:
 #   test:
 #     # Job name is Test
