@@ -6,9 +6,9 @@ target 'Nousdigital' do
 
   # Pods for Nousdigital
   pod 'SDWebImage', '4.4.6'
-  pod 'RxSwift', '~> 5.0'
-  pod 'RxCocoa', '~> 5'
-#  pod 'IQKeyboardManager', '~> 6.4'
+  pod 'RxSwift', '~> 5.0.0'
+  pod 'RxCocoa', '~> 5.0.0'
+  pod 'IQKeyboardManager', '~> 6.4.0'
 
   target 'NousdigitalTests' do
     inherit! :search_paths
