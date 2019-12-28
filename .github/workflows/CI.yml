@@ -10,6 +10,11 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
+    - name: Dependencies
+      run: 
+        bundle exec pod install
+      env:
+        DEVELOPER_DIR: ${{ matrix.xcode }}
     - name: Start xcodebuild test
       run: xcodebuild clean test -project "Nousdigital.xcodeproj" -scheme "Nousdigital" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
 #       run: xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination "platform:iOS Simulator,OS:12.4, name:iPhone 8 Plus" 
