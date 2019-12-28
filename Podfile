@@ -8,7 +8,7 @@ target 'Nousdigital' do
   pod 'SDWebImage', '4.4.6'
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5'
-  pod 'IQKeyboardManager', '~> 6.4'
+#  pod 'IQKeyboardManager', '~> 6.4'
 
   target 'NousdigitalTests' do
     inherit! :search_paths
