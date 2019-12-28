@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-      run: xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination "platform=iOS Simulator,OS=12.2,name=iPhone X"
+      run: xcodebuild clean test -project Nousdigital.xcodeproj -scheme Nousdigital -destination generic/platform=iOS
 # jobs:
 #   test:
 #     name: Test
