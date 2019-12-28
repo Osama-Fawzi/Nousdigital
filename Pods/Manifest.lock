@@ -1,4 +1,5 @@
 PODS:
+  - IQKeyboardManager (6.4.2)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -10,8 +11,9 @@ PODS:
   - SDWebImage/Core (4.4.6)
 
 DEPENDENCIES:
-  - RxCocoa (~> 5)
-  - RxSwift (~> 5.0)
+  - IQKeyboardManager (~> 6.4.0)
+  - RxCocoa (~> 5.0.0)
+  - RxSwift (~> 5.0.0)
   - SDWebImage (= 4.4.6)
 
 SPEC REPOS:
@@ -20,13 +22,16 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SDWebImage
+  trunk:
+    - IQKeyboardManager
 
 SPEC CHECKSUMS:
+  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
 
-PODFILE CHECKSUM: 9ff8fdd1c6701f0c5c77f5c325d9c510af86f167
+PODFILE CHECKSUM: 3ac7628e647b518fe8f0833be1be80b57060385d
 
 COCOAPODS: 1.8.4

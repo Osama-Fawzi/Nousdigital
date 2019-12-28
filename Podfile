@@ -9,15 +9,16 @@ target 'Nousdigital' do
   pod 'RxSwift', '~> 5.0.0'
   pod 'RxCocoa', '~> 5.0.0'
   pod 'IQKeyboardManager', '~> 6.4.0'
-
-  target 'NousdigitalTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'NousdigitalUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
+
+#  target 'NousdigitalTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#  target 'NousdigitalUITests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#end
