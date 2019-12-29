@@ -21,6 +21,7 @@ jobs:
     - name: Releasing to TestFlight
       run: |
         cd Nousdigital
+        sudo gem install fastlane
         fastlane beta
       shell: bash
 # jobs:
