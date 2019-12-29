@@ -22,7 +22,7 @@ jobs:
       run: |
         cd Nousdigital
         sudo gem install fastlane
-        fastlane beta
+        bundle exec fastlane beta
       shell: bash
 # jobs:
 #   test:
