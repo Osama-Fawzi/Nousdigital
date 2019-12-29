@@ -17,7 +17,7 @@ jobs:
         pod install
       shell: bash
     - name: Start xcodebuild test
-      run: xcodebuild clean test -workspace "Nousdigital.xcworkspace" -scheme "Nousdigital" -destination "platform=iOS Simulator,name=iPhone 8,OS=latest"
+      run: xcodebuild -workspace "Nousdigital.xcworkspace" -scheme "Nousdigital" -destination "platform=iOS Simulator,name=iPhone 8,OS=latest"
     - name: Releasing to TestFlight
       run:  fastlane beta
       shell: bash
