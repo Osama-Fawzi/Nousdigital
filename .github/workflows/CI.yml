@@ -10,24 +10,16 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-#     - name: Install Dependences
-#       run: |
-#         cd Nousdigital
-#         pod repo update
-#         pod install
-#       shell: bash
-#     - name: Start xcodebuild test
-#       run: xcodebuild clean test -workspace "Nousdigital.xcworkspace" -scheme "Nousdigital" -destination "platform=iOS Simulator,name=iPhone 8,OS=latest"
+    - name: Install Dependences
+      run: |
+        cd Nousdigital
+        pod repo update
+        pod install
+      shell: bash
+    - name: Start xcodebuild test
+      run: xcodebuild clean test -workspace "Nousdigital.xcworkspace" -scheme "Nousdigital" -destination "platform=iOS Simulator,name=iPhone 8,OS=latest"
     - name: Releasing to TestFlight
       run:  fastlane beta
-
-#        cd Nousdigital
-#        sudo gem install xcodeproj
-#        sudo gem install simctl
-#        sudo gem install json
-#        sudo gem install mime-types
-#        sudo gem install fastlane
-#        bundle exec 
       shell: bash
 # jobs:
 #   test:
