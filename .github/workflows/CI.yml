@@ -4,12 +4,12 @@ on:
   push:
     branches:
     - develop
-    - feature/*
+#     - feature/*
 jobs:
   build:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@develop
     - name: Install Dependences
       run: |
         cd Nousdigital
