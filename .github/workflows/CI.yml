@@ -21,6 +21,7 @@ jobs:
     - name: Releasing to TestFlight
       run: |
         cd Nousdigital
+        sudo gem install xcodeproj
         sudo gem install simctl
         sudo gem install json
         sudo gem install mime-types
