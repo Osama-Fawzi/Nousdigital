@@ -16,8 +16,8 @@ jobs:
         pod repo update
         pod install
       shell: bash
-#     - name: Start xcodebuild test
-#       run: xcodebuild -workspace "Nousdigital.xcworkspace" -scheme "Nousdigital" -destination "platform=iOS Simulator,name=iPhone 8,OS=latest"
+    - name: Start xcodebuild test
+      run: xcodebuild clean -workspace "Nousdigital.xcworkspace" -scheme "Nousdigital" -destination "platform=iOS Simulator,name=iPhone 8,OS=latest"
     - name: Releasing to TestFlight
       run: |
        sudo gem install fastlane
