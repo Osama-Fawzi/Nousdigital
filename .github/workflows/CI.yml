@@ -21,6 +21,7 @@ jobs:
     - name: Releasing to TestFlight
       run: |
         cd Nousdigital
+        sudo gem install mime-types-3.3.1
         sudo gem install fastlane
         bundle exec fastlane beta
       shell: bash
